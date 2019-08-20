@@ -1,25 +1,89 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useRef } from 'react';
+import UserList from './UserList';
+import CreateUser from './CreateUser';
+
 
 function App() {
+
+  const [inputs, setInputs] = useState({
+    username: '',
+    email: ''
+  });
+  
+  const { username, email } = inputs;
+
+  const onChange = (e) => {
+    const { name, value } = e.target;
+    setInputs({
+      ...inputs,
+      [name]: value
+    });
+  };
+
+  const [users, setUsers] = useState([
+    {
+        id: 1,
+        username: 'velopert',
+        email: 'v@gmail.com',
+        active: true
+    },
+    {
+        id: 2,
+        username: 'hkwon',
+        email: 'hkwon@hotmail.com',
+        active: false
+    },
+    {
+        id: 3,
+        username: 'daheek',
+        email: 'daheek@gmail.com',
+        active: false
+    }
+  ]);
+
+  const nextId = useRef(4);
+
+  const onCreate = () => {
+    const user = {
+      id: nextId.current,
+      username,
+      email
+    };
+
+    // setUsers([...users, user]);
+    setUsers(users.concat(user));
+
+    setInputs({
+      username: '',
+      email: ''
+    });
+    console.log(nextId.current);
+    nextId.current += 1;
+  }
+
+  const onRemove = (id) => {
+    // const list = users.filter((n) => n.id !== id);
+    // setUsers(list);
+
+    setUsers(users.filter(user => user.id !== id));
+  }
+
+  const onToggle = (id) => {
+    setUsers(users.map(user => user.id === id
+      ? {...user, active: !user.active}
+      : user));
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <CreateUser 
+        username={username}
+        email={email}
+        onChange={onChange}
+        onCreate={onCreate} 
+      />
+      <UserList users={users} onRemove={onRemove} onToggle={onToggle} />
+    </>
   );
 }
 
