@@ -110,6 +110,8 @@ export default App;
 - useState를 이용하여 rendering 할 객체의 내용을 변경한다.
 - useRef를 이용하여 특정 DOM 을 handling 할 수 있다.
 - useMemo는 여기서 지정한 객체의 내용이 변화될 때만 수행된다. (최적화를 위해 필요)
+- useCallback을 사용해서 최적화를 할때, dependency를 줄이기 위해 고민해야 한다. 
+- 예) setUsers() 인자로 함수를 넣어서 deps에서 users를 삭제해주면 최적화된다.
 - React.memo를 이용하면 어느정도 최적화가 된다.
 - 예) export default React.memo(UserList);
 
