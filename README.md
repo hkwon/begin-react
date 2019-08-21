@@ -1,7 +1,7 @@
 # Velopert reactjs 강의를 보면서 따라한 코딩
 
 ## 소스코드
-````javascript
+```javascript
 import React, { useState, useRef, useMemo } from 'react';
 import UserList from './UserList';
 import CreateUser from './CreateUser';
@@ -104,12 +104,14 @@ function App() {
 }
 
 export default App;
-````
+```
 
 ## 주요내용
 - useState를 이용하여 rendering 할 객체의 내용을 변경한다.
 - useRef를 이용하여 특정 DOM 을 handling 할 수 있다.
 - useMemo는 여기서 지정한 객체의 내용이 변화될 때만 수행된다. (최적화를 위해 필요)
+- React.memo를 이용하면 어느정도 최적화가 된다.
+- 예) export default React.memo(UserList);
 
 ## 느낀점과 얻은것들
 - React.js 는 HTML과 CSS를 마치 js 로 작성하는 듯 하게 만든다.
