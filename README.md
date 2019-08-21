@@ -1,17 +1,20 @@
 # Velopert reactjs 강의를 보면서 따라한 코딩
 
+## 주요내용
+- useState를 이용하여 rendering 할 객체의 내용을 변경한다.
+- useRef를 이용하여 특정 DOM 을 handling 할 수 있다.
+- useMemo는 여기서 지정한 객체의 내용이 변화될 때만 수행된다. (최적화를 위해 필요)
+
 ## 느낀점과 얻은것들
 - React.js 는 HTML과 CSS를 마치 js 로 작성하는 듯 하게 만든다.
 - 어짜피 DOM 또한 js object 이니까 너무나 자연스럽게 물 흐르듯 작성이 된다.
 - props로 parameter를 전달한다.
 - 이때, 미리 { username, email, id, active } 등과 같이 비구조화 할당을 하여 사용한다.
-- useState를 이용하여 rendering 할 객체의 내용을 변경한다.
 - onCreate 는 spread 연산자를 사용하여, useState의 두번째 함수를 호출한다.
 - onRemove 는 filter를 이용한다.
 - onToggle 은 map을 이용한다.
 - 항상 기존 객체를 copy하여 새로운 객체를 만들어서 rendering 하게 한다.
 - rendering의 효율성을 위해 key를 등록한다.
-- useRef를 이용하여 특정 DOM 을 handling 할 수 있다.
 - 또한 useRef를 이용하여 내부 정보를 저장하여 사용할 수 있다.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
