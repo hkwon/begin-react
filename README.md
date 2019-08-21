@@ -114,6 +114,9 @@ export default App;
 - 예) setUsers() 인자로 함수를 넣어서 deps에서 users를 삭제해주면 최적화된다.
 - React.memo를 이용하면 어느정도 최적화가 된다.
 - 예) export default React.memo(UserList);
+- 연산된 값을 재사용하기 위해서는 useMemo
+  특정함수를 재사용하기 위해서는 useCallback
+  컴포넌트 rendering된 결과물을 재사용하기 위해서는 React.memo 를 이용한다.
 
 ## 느낀점과 얻은것들
 - React.js 는 HTML과 CSS를 마치 js 로 작성하는 듯 하게 만든다.
